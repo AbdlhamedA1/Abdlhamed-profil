@@ -1,4 +1,5 @@
 import { SocialLink } from '../types';
+import profilePhoto from '../assets/profile.jpg';
 
 export const PROFILE = {
   name: 'Abdlhamed Abdlrady',
@@ -10,8 +11,8 @@ export const PROFILE = {
   githubUrl: 'https://github.com/AbdlhamedA1',
   linkedinUrl: 'https://www.linkedin.com/in/abdlhamed-abdlrady',
   
-  // Real personal profile photo URL (located in public/images/profile.jpg)
-  customAvatarUrl: '/images/profile.jpg',
+  // Real personal profile photo imported directly for 100% reliable bundling across GitHub Pages and custom domains
+  customAvatarUrl: profilePhoto,
   avatarAlt: 'Portrait of Abdlhamed Abdlrady, Front-End Developer',
 };
 
@@ -48,7 +49,5 @@ export const NAV_ITEMS = [
   { id: 'skills', labelKey: 'skills', href: '#skills' },
   { id: 'projects', labelKey: 'projects', href: '#projects' },
   { id: 'education', labelKey: 'education', href: '#education' },
-  { id: 'training', labelKey: 'training', href: '#training' },
   { id: 'contact', labelKey: 'contact', href: '#contact' },
 ];
-
