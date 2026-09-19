@@ -5,6 +5,7 @@ import { TRAINING_ITEMS } from '../../data/training';
 import { useLanguage } from '../../hooks/useLanguage';
 import { Award, Terminal, Palette, X, Eye, CheckCircle2 } from 'lucide-react';
 import { TrainingItem } from '../../types';
+import { getAssetUrl } from '../../utils/assets';
 
 interface CertificatePreviewProps {
   item: TrainingItem;
@@ -15,6 +16,7 @@ const CertificatePreview: React.FC<CertificatePreviewProps> = ({ item, onOpenMod
   const { t } = useLanguage();
   const [imgError, setImgError] = useState(false);
   const [imgLoaded, setImgLoaded] = useState(false);
+  const resolvedCertUrl = getAssetUrl(item.certificateUrl);
 
   return (
     <div className="space-y-4 pt-2">
@@ -34,10 +36,10 @@ const CertificatePreview: React.FC<CertificatePreviewProps> = ({ item, onOpenMod
         data-cursor="view"
       >
         {/* Certificate Image or Fallback Vector Frame */}
-        {item.certificateUrl && !imgError ? (
+        {resolvedCertUrl && !imgError ? (
           <>
             <img
-              src={item.certificateUrl}
+              src={resolvedCertUrl}
               alt={item.certificateAltKey ? t('training', item.certificateAltKey) : t('training', item.programKey)}
               loading="lazy"
               onLoad={() => setImgLoaded(true)}
@@ -303,7 +305,7 @@ export const Training: React.FC = () => {
               <div className="p-4 sm:p-6 overflow-y-auto flex-1 flex items-center justify-center bg-slate-100/50 dark:bg-black/40">
                 <div className="relative max-h-[65vh] w-full flex items-center justify-center">
                   <img
-                    src={selectedItem.certificateUrl}
+                    src={getAssetUrl(selectedItem.certificateUrl)}
                     alt={
                       selectedItem.certificateAltKey
                         ? t('training', selectedItem.certificateAltKey)

@@ -6,6 +6,8 @@ import { useLanguage } from '../../hooks/useLanguage';
 import { Github, ArrowUpRight, Sparkles, Layers } from 'lucide-react';
 import { Project } from '../../types';
 
+import { getAssetUrl } from '../../utils/assets';
+
 interface ProjectImageVisualProps {
   project: Project;
   className?: string;
@@ -20,14 +22,16 @@ const ProjectImageVisual: React.FC<ProjectImageVisualProps> = ({
   const [hasError, setHasError] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
 
-  if (!project.imageUrl || hasError) {
+  const resolvedUrl = getAssetUrl(project.imageUrl);
+
+  if (!resolvedUrl || hasError) {
     return <>{mockupFallback}</>;
   }
 
   return (
     <div className={`relative w-full h-full min-h-[220px] overflow-hidden bg-slate-100 dark:bg-[#0c1017] ${className}`}>
       <img
-        src={project.imageUrl}
+        src={resolvedUrl}
         alt={project.imageAlt || project.id}
         loading="lazy"
         onLoad={() => setIsLoaded(true)}

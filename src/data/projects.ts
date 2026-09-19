@@ -11,7 +11,7 @@ export const PROJECTS: Project[] = [
     codeUrl: 'https://github.com/AbdlhamedA1/project-2',
     isFeatured: true,
     layoutVariant: 'featured',
-    imageUrl: undefined,
+    imageUrl: 'images/projects/project-1.png',
     imageAlt: 'Interactive Web Experience & UI Showcase Preview',
     imagePosition: 'object-top',
     imagePlaceholder: {
@@ -29,7 +29,7 @@ export const PROJECTS: Project[] = [
     codeUrl: 'https://github.com/AbdlhamedA1/mustacchio',
     isFeatured: false,
     layoutVariant: 'medium',
-    imageUrl: undefined,
+    imageUrl: 'images/projects/project-2.png',
     imageAlt: 'Mustacchio Lifestyle & Brand Platform Preview',
     imagePosition: 'object-top',
     imagePlaceholder: {
@@ -47,7 +47,7 @@ export const PROJECTS: Project[] = [
     codeUrl: 'https://github.com/AbdlhamedA1/project-1-new',
     isFeatured: false,
     layoutVariant: 'medium',
-    imageUrl: undefined,
+    imageUrl: 'images/projects/project-3.png',
     imageAlt: 'Modern Product Showcase & Landing Experience Preview',
     imagePosition: 'object-top',
     imagePlaceholder: {
@@ -65,7 +65,7 @@ export const PROJECTS: Project[] = [
     codeUrl: 'https://github.com/AbdlhamedA1/project-4',
     isFeatured: false,
     layoutVariant: 'compact',
-    imageUrl: undefined,
+    imageUrl: 'images/projects/project-4.png',
     imageAlt: 'Dynamic Web Interface & Layout Project Preview',
     imagePosition: 'object-top',
     imagePlaceholder: {

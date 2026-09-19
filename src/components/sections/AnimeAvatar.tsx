@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { PROFILE } from '../../data/profile';
 import { Code2, Sparkles } from 'lucide-react';
+import { getAssetUrl } from '../../utils/assets';
 
 export const AnimeAvatar: React.FC = () => {
+  const [photoError, setPhotoError] = useState(false);
+  const avatarSrc = getAssetUrl(PROFILE.customAvatarUrl);
+
   return (
     <div className="relative w-full max-w-[380px] sm:max-w-[420px] mx-auto flex items-center justify-center">
       {/* Outer ambient glow */}
@@ -33,15 +37,16 @@ export const AnimeAvatar: React.FC = () => {
             <div className="absolute -top-12 -right-12 w-48 h-48 rounded-full bg-accent/15 blur-2xl pointer-events-none z-0" />
             <div className="absolute -bottom-12 -left-12 w-48 h-48 rounded-full bg-emerald-500/10 blur-2xl pointer-events-none z-0" />
 
-            {/* Avatar Content: Actual Personal Photo */}
-            {PROFILE.customAvatarUrl ? (
+            {/* Avatar Content: Actual Personal Photo (Auto-resolved path) */}
+            {avatarSrc && !photoError ? (
               <div className="relative w-full h-full overflow-hidden z-10">
                 <img
-                  src={PROFILE.customAvatarUrl}
+                  src={avatarSrc}
                   alt={PROFILE.avatarAlt || `Portrait of ${PROFILE.name}, Front-End Developer`}
                   className="w-full h-full object-cover object-[center_12%] transition-transform duration-700 hover:scale-[1.03] select-none"
                   loading="eager"
                   decoding="async"
+                  onError={() => setPhotoError(true)}
                 />
                 {/* Subtle vignette / bottom gradient shadow */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none opacity-40 dark:opacity-60" />
@@ -167,7 +172,7 @@ export const AnimeAvatar: React.FC = () => {
             {/* Corner Decorative Tech Badges */}
             <div className="absolute top-3 left-3 z-20 flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white/90 dark:bg-dark-bg/80 backdrop-blur-md border border-slate-200 dark:border-white/10 text-[10px] font-mono text-slate-700 dark:text-dark-muted shadow-sm">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-              <span>Abdlhamed</span>
+              <span>DEV</span>
             </div>
 
             <div className="absolute top-3 right-3 z-20 p-1.5 rounded-lg bg-white/90 dark:bg-dark-bg/80 backdrop-blur-md border border-slate-200 dark:border-white/10 text-accent shadow-sm">
